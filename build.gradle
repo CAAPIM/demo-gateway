@@ -1,0 +1,57 @@
+/*
+ * Copyright (c) 2018 CA. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license.  See the LICENSE file for details.
+ */
+
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.ca.apim.gateway:gateway-developer-plugin:0.8.+"
+        classpath "com.ca.apim.gateway:gateway-export-plugin:0.8.+"
+        classpath "com.bmuschko:gradle-docker-plugin:4.6.+"
+    }
+}
+
+subprojects {
+    apply plugin: 'com.ca.apim.gateway.gateway-developer-plugin'
+    if (!project.name.equals('deployment')) {
+        apply plugin: 'com.ca.apim.gateway.gateway-export-plugin'
+
+        GatewayConnection {
+            url = 'https://localhost:8443/restman'
+        }
+    }
+
+    group 'getting-started-gateway'
+    version = '1.0.0'
+
+
+    repositories {
+        mavenLocal()
+        jcenter()
+        flatDir {
+            dirs new File(project.parent.rootDir, "lib")
+        }
+    }
+}
+
+wrapper {
+    gradleVersion = '4.10.2'
+}
+//
+// Import task types
+import com.bmuschko.gradle.docker.tasks.image.*
+
+// Use task types
+task buildDockerImage(type: DockerBuildImage) {
+    apply plugin: 'com.bmuschko.docker-remote-api'
+    inputDir.set(file('./'))
+    tags.add(System.getProperty("imageName")+ ":" + System.getProperty("imageTag"))
+    labels = ['org.opencontainers.image.created': new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))]
+    pull.set(true)
+}

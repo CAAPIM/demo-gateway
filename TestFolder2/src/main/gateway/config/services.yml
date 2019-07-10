@@ -1,0 +1,10 @@
+TestFolder2/BackgroundEnvironmentService:
+  url: "/background_environment"
+  policy: "TestFolder2/BackgroundEnvironmentService"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
+  wssProcessingEnabled: false
