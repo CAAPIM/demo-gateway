@@ -24,6 +24,8 @@ subprojects {
 
         GatewayConnection {
             url = 'https://localhost:8443/restman'
+            userName = 'admin'
+            userPass = 'password'
         }
     }
 
