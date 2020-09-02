@@ -14,7 +14,6 @@ services:
     volumes:
     - /opt/SecureSpan/Gateway/node/default/etc/bootstrap/services/restman
     - ./bundles/helloworld.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/helloworld.bundle
-    - ./deployment/build/gateway/deployment-1.0.0.gw7:/opt/docker/rc.d/deployment.gw7
     secrets:
     - source: license
       target: /opt/SecureSpan/Gateway/node/default/etc/bootstrap/license/license.xml
