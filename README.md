@@ -1,8 +1,8 @@
 # demo-gateway-repo
-Use this repository to boot up a demo container gateway to test out the Gateway Developer plugin.
+Use this repository to boot up a demo container gateway to test out the Gateway Policy plugin.
 
 # About
-This is a demo repository to you can use as an existing gateway to export from in the instruction guide: [Getting Started with the Developer Plugin](https://github.com/CAAPIM/APIM-Gateway-Developer-Tools/wiki/1.-Getting-Started-with-the-Developer-Plugin)
+This is a demo repository to you can use as an existing gateway to export from in the instruction guide: [API Gateway Policy Plugin.](https://techdocs.broadcom.com/content/broadcom/techdocs/us/en/ca-enterprise-software/layer7-api-management/gateway-policy-plugin/1-0.html)
 
 # Giving Back
 ## How You Can Contribute
